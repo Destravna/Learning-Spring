@@ -19,11 +19,12 @@ public class Singer implements Serializable {
     private String lastName;
     private LocalDate birthDate;
     private Set<Album> albums;
-    
+
     @Override
     public String toString() {
-        return new ToStringBuilder("singer").append("id", id).append("name", firstName + " " + lastName).append("birthDate",  birthDate).toString();
+        return new ToStringBuilder(this).append("name", firstName + " " + lastName)
+                                        .append("birthdate", birthDate)
+                                        .append("albums", albums) .toString();
     }
-
 
 }

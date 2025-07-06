@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import java.sql.SQLException;
 import org.apache.commons.dbcp2.BasicDataSource;
 import javax.sql.DataSource;
 

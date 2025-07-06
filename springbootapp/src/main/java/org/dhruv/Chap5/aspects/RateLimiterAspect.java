@@ -54,7 +54,7 @@ public class RateLimiterAspect {
 
     private boolean methodExecuteControl(List<Instant> callTimes) {
         Instant now = Instant.now();
-        // Keep only calls within the last 3 minutes
+        //only keep the calls in last 3 minutes
         callTimes.removeIf(time -> Duration.between(time, now).getSeconds() >= 180);
         if (callTimes.size() >= 3) {
             return false;

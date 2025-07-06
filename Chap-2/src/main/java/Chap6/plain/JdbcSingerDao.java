@@ -2,21 +2,22 @@ package Chap6.plain;
 
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Optional;
+import java.util.Set;
+import java.lang.UnsupportedOperationException;
 import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import Chap6.dao.SingerDao;
-import Chap6.exceptions.MariaDBErrorCodesTranslator;
+import Chap6.pojos.Singer;
 
 public class JdbcSingerDao implements SingerDao, InitializingBean {
 
     private static final Logger logger = LoggerFactory.getLogger(JdbcSingerDao.class);
     private DataSource dataSource; 
-    private JdbcTemplate jdbcTemplate;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -27,10 +28,6 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
-        var jdbcTemplate = new JdbcTemplate();
-        var errorTranslator = new MariaDBErrorCodesTranslator();
-        jdbcTemplate.setExceptionTranslator(errorTranslator);
-        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
@@ -55,5 +52,15 @@ public class JdbcSingerDao implements SingerDao, InitializingBean {
 
         return Optional.empty();
 
+    }
+
+    @Override
+    public Set<Singer> findAll() {
+        throw new UnsupportedOperationException("findaAll not implemented");
+    }
+
+    @Override
+    public Set<Singer> findAllWithAlbum() {
+        throw new UnsupportedOperationException();
     }
 }

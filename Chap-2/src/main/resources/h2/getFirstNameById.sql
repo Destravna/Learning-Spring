@@ -1,0 +1,8 @@
+CREATE FUNCTION getfirstnamebyid(in_id BIGINT)
+RETURNS VARCHAR(60)
+DETERMINISTIC
+BEGIN
+  DECLARE result VARCHAR(60);
+  SELECT first_name INTO result FROM SINGER WHERE id = in_id;
+  RETURN result;
+END
