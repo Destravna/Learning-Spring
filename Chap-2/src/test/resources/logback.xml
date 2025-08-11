@@ -1,0 +1,14 @@
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="console" />
+    </root>
+    <logger name="org.dhruv.Chap9Test" level="DEBUG"/>
+    <logger name="org.springframework.orm.jpa.JpaTransactionManager" level="DEBUG"/>
+    <logger name="org.hibernate.engine.transaction.internal.TransactionImpl" level="DEBUG"/>
+    <logger name="org.springframework.transaction.support.AbstractPlatformTransactionManager" level="DEBUG"/>
+</configuration>

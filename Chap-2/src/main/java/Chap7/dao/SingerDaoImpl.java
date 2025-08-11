@@ -105,7 +105,7 @@ public class SingerDaoImpl implements SingerDao {
 
             var album = new Album() ;
             album.setTitle(allDetailsQueryDTO.getTitle());
-            album.setReleasDate(allDetailsQueryDTO.getReleaseDate());
+            album.setReleaseDate(allDetailsQueryDTO.getReleaseDate());
 
             var instrument = new Instrument();
             instrument.setInstrumentId(allDetailsQueryDTO.getInstruemtnId());

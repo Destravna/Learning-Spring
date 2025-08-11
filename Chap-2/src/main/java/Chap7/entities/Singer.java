@@ -115,6 +115,8 @@ public class Singer extends AbstractEntity {
                     .append("version", getVersion()).append("birth_date", birthDate).append("id", id).toString();
     }
 
+    
+
     public void removeAlbum(Album album){
         albums.remove(album);
     }

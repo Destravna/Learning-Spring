@@ -51,6 +51,8 @@ public class JpaConfig {
         factory.setJpaVendorAdapter(jpaVendorAdapter());
         factory.setPackagesToScan("Chap7.entities");
         factory.setJpaProperties(jpaProperties());
+        factory.setEntityManagerFactoryInterface(jakarta.persistence.EntityManagerFactory.class);
+        
         return factory;
     }
     

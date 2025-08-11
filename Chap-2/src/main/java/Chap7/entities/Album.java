@@ -10,11 +10,18 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ALBUM")
+@NamedQueries({
+    @NamedQuery(name = "Album.findBySinger", query = "select distinct a from Album a where a.singer = :singer"),
+    @NamedQuery(name=Album.FIND_ALL_WITH_RELEASE_DATE_GREATER_THAN, query="select a from Album a where a.releaseDate > ?1")
+})
 public class Album extends AbstractEntity {
+    private static final String FIND_ALL_WITH_RELEASE_DATE_GREATER_THAN = "Album.findWithReleaseDateGreaterThan";
     @Serial private static final long serialVersionUID = 3L;
 
     private String title;
@@ -37,7 +44,7 @@ public class Album extends AbstractEntity {
     }
 
     @Column(name = "release_date")
-    public LocalDate getReleasDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
@@ -45,7 +52,7 @@ public class Album extends AbstractEntity {
         this.title = title;
     }
 
-    public void setReleasDate(LocalDate releasDate) {
+    public void setReleaseDate(LocalDate releasDate) {
         this.releaseDate = releasDate;
     }
 

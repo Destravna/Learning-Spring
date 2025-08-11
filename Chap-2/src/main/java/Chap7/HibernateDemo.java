@@ -64,7 +64,7 @@ public class HibernateDemo {
         dhruv.setBirthDate(LocalDate.parse("2003-01-19"));
         Album album = new Album();
         album.setTitle("A heart full of cheesecake");
-        album.setReleasDate(LocalDate.of(2025, 2, 14));
+        album.setReleaseDate(LocalDate.of(2025, 2, 14));
         album.setSinger(dhruv);
         dhruv.getAlbums().add(album);
         // Instrument instrument = new Instrument();
